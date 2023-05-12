@@ -357,63 +357,22 @@ resourcereport resourceGraph "" {
   sorttasks plan.start.up
 }
 
-task tarea_4 "Desarrollo de la versión móvil del frontend del juego" {
-    allocate front_dev
-    depends tarea_1
-    start 2023-06-12
-    duration 20d
-    
-    task sub_1 "Diseño de la interfaz" {
-      start 2023-06-12
-      duration 5d
-    }
-    
-    task sub_2 "Implementación de la funcionalidad básica" {
-      start 2023-06-19
-      duration 10d
-    }
-    
-    task sub_3 "Pruebas en dispositivos móviles" {
-      allocate tester
-      depends sub_2
-      start 2023-06-29
-      duration 5d
-    }
+task tmob "Mobile" {
+  chargeset back
+  responsible dev1
+  depends WMGame.tgdesign
+  task tBEd "Diseño de la interfaz" {
+  effort 5d
+  allocate dev1
   }
+}
 
-   task tarea_5 "Soporte al despliegue en la nube del backend" {
-    allocate back_dev
-    depends tarea_2
-    start 2023-06-12
-    duration 15d
-    
-    task sub_1 "Evaluación de diferentes proveedores de nube" {
-      start 2023-06-12
-      duration 5d
-    }
-    
-    task sub_2 "Decisión del proveedor de nube a utilizar" {
-      start 2023-06-19
-      duration 3d
-    }
-    
-    task sub_3 "Despliegue en la nube seleccionada" {
-      start 2023-06-23
-      duration 7d
-    }
+task tcloud "Cloud" {
+  chargeset back
+  responsible dev1
+  depends WMGame.tgdesign
+  task tBEd "Evaluación de la nube" {
+  effort 2d
+  allocate dev1
   }
-
-  # Restricciones y modificaciones
-  constraint inicio_pruebas after 2023-06-01
-  add inicio_pruebas to tarea_3
-  
-  project inicio_practica "Inicio de la práctica" 2023-05-12
-  shift inicio_practica -1d
-  shift tarea_4 +2d
-  annotate tarea_4 on inicio_practica "Inicio de la tarea 4: Desarrollo de la versión móvil del frontend"
-  
-  report "Informe del proyecto" {
-    format html
-    output "informe_proyecto.html"
-    columns bsi, name, start, end, effort, cost, chart
-  }
+}
