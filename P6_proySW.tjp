@@ -357,9 +357,23 @@ resourcereport resourceGraph "" {
   sorttasks plan.start.up
 }
 
-task Mobile "Mobile Game" {
+task tmob "Mobile" {
+  chargeset back
+  responsible dev1
+  depends WMGame.tgdesign
+  task tBEd "Back End General Design" {
+  effort 5d
+  allocate dev1
+  }
 }
 
-task Cloud "Cloud" {
+task tcloud "Cloud" {
+  chargeset back
+  responsible dev1
+  depends WMGame.tgdesign
+  task tBEd "Back End General Design" {
+  effort 5d
+  allocate dev1
+  }
 }
 
