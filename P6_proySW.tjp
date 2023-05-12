@@ -356,3 +356,10 @@ resourcereport resourceGraph "" {
   hidetask ~(isleaf() & isleaf_())
   sorttasks plan.start.up
 }
+
+task Mobile "Mobile Game" {
+}
+
+task Cloud "Cloud" {
+}
+
