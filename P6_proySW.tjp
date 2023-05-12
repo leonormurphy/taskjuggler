@@ -361,28 +361,18 @@ task tmob "Mobile" {
   chargeset back
   responsible dev1
   depends WMGame.tgdesign
-  task tBEd "Diseño interfaz" {
-    effort 5d
-    allocate dev1
-  }
-  task tBEd "Implementación del juego" {
-    effort 30d
-    allocate dev1
+  task tBEd "Diseño de la interfaz" {
+  effort 5d
+  allocate dev1
   }
 }
 
 task tcloud "Cloud" {
   chargeset back
   responsible dev1
-  responsible dev2
   depends WMGame.tgdesign
-  task tBEd "Evaluación y decisión de nube" {
-    effort 3d
-    allocate dev1
-  }
-  task tBEd "Despliegue de la nube" {
-    effort 2d
-    allocate dev2
+  task tBEd "Evaluación de la nube" {
+  effort 2d
+  allocate dev1
   }
 }
-
